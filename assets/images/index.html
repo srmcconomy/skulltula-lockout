@@ -1,0 +1,369 @@
+<html>
+<head>
+  <style>
+  body {
+    background: black;
+    margin: 0;
+    overflow: hidden;
+  }
+  img {
+    position: absolute;
+  }
+  img.over {
+    filter: drop-shadow(10px 10px 25px white);
+  }
+  #selection-map {
+    display: none;
+  }
+  .highlight {
+    opacity: 0;
+    width: 100%;
+  }
+  .highlight.hover {
+    opacity: 1;
+  }
+  #map {
+    height: 100%
+  }
+  .container {
+    height: 600px;
+    width: 600px;
+    position: relative;
+  }
+
+  .skull {
+    position: absolute;
+    width: 1.77%;
+    background: white;
+    border-radius: 50%;
+    background-image: url('/images/skulltula.png');
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="deku" class="highlight" src="deku-highlight.png"></img>
+    <img id="dc" class="highlight" src="dc-highlight.png"></img>
+    <img id="jabu" class="highlight" src="jabu-highlight.png"></img>
+    <img id="forest-temple" class="highlight" src="forest-temple-highlight.png"></img>
+    <img id="fire-temple" class="highlight" src="fire-temple-highlight.png"></img>
+    <img id="water-temple" class="highlight" src="water-temple-highlight.png"></img>
+    <img id="shadow-temple" class="highlight" src="shadow-temple-highlight.png"></img>
+    <img id="spirit-temple" class="highlight" src="spirit-temple-highlight.png"></img>
+    <img id="ice-cavern" class="highlight" src="ice-cavern-highlight.png"></img>
+    <img id="botw" class="highlight" src="botw-highlight.png"></img>
+    <img id="lost-woods" class="highlight" src="lost-woods-highlight.png"></img>
+    <img id="lake-hylia" class="highlight" src="lake-hylia-highlight.png"></img>
+    <img id="lon-lon" class="highlight" src="lon-lon-highlight.png"></img>
+    <img id="market-area" class="highlight" src="hyrule-castle-highlight.png"></img>
+    <img id="kakariko" class="highlight" src="kakariko-highlight.png"></img>
+    <img id="death-mountain" class="highlight" src="death-mountain-highlight.png"></img>
+    <img id="zora-area" class="highlight" src="zora-area-highlight.png"></img>
+    <img id="gerudo-valley" class="highlight" src="gerudo-valley-highlight.png"></img>
+    <img id="gerudo-fortress" class="highlight" src="gerudo-fortress-highlight.png"></img>
+    <img id="colossus" class="highlight" src="colossus-highlight.png"></img>
+    <img id="kokiri" class="highlight" src="kokiri-highlight.png"></img>
+    <img id="hyrule-field" class="highlight" src="hyrule-field-highlight.png"></img>
+    <img id="map" src="map.png"></img>
+    <img id="selection-map" class="highlight" src="selection-map.png"></img>
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+    <img class="skull" style="left: 0%; top: 0%;" src="gold-skulltula.png">
+  </div>
+  <script>
+
+(function(){
+  skulls = [
+    [14.5, 50], //colossus
+    [7, 67],
+    [6, 82],
+    [12, 84],
+    [7, 87.5],
+    [2, 93], //spirit-temple
+    [4, 93],
+    [6, 93],
+    [8, 93],
+    [10, 93],
+    [18, 53.5], //gerudo-fortress
+    [26.5, 51],
+    [28, 54], //gerudo-valley
+    [30, 52],
+    [32, 47],
+    [60, 18], // market
+    [58, 22.5],
+    [61.5, 22],
+    [59, 34,5],
+    [41, 49], //hyrule-field
+    [62, 34],
+    [53, 46], //lon-lon
+    [54, 48],
+    [53, 50.5],
+    [49.5, 51],
+    [43.5, 74.5], //lake-hylia
+    [42.5, 76],
+    [44, 76],
+    [51, 83],
+    [49, 83],
+    [43, 86], //water-temple
+    [45, 86],
+    [47, 86],
+    [49, 86],
+    [51, 86],
+    [76.5, 5], //death-mountain
+    [78, 10],
+    [76.5, 17],
+    [75, 21],
+    [73, 22],
+    [72.5, 25],
+    [75, 14],
+    [77, 14],
+    [70, 15], //dc
+    [70, 17],
+    [70, 19],
+    [70, 21],
+    [70, 23],
+    [69, 3], //fire-temple
+    [71, 3],
+    [73, 3],
+    [75, 3],
+    [77, 3],
+    [73.5, 30], //kakariko
+    [72.5, 32.5],
+    [73.5, 34.5],
+    [74.5, 36.5],
+    [74.5, 32],
+    [76, 35],
+    [82, 33],
+    [83, 35.5],
+    [79, 31], //botw
+    [79, 33],
+    [79, 35],
+    [86, 32], //shadow-temple
+    [88, 32],
+    [90, 32],
+    [92, 32],
+    [94, 32],
+    [72, 40], //zora-area
+    [75, 42.5],
+    [81.5, 44],
+    [83, 46],
+    [86, 50],
+    [98, 47],
+    [91, 51],
+    [96, 51],
+    [95, 37], //ice-cavern
+    [95, 39],
+    [95, 41],
+    [90, 44], //jabu
+    [92, 44],
+    [94, 44],
+    [96, 44],
+    [68, 55], //kokiri
+    [70, 59],
+    [67, 59],
+    [68, 69], //deku
+    [70, 69],
+    [72, 69],
+    [74, 69],
+    [71, 54], //lost-woods
+    [79, 57.5],
+    [78.5, 59.5],
+    [85, 61],
+    [98, 56], //forest-temple
+    [98, 58],
+    [98, 60],
+    [98, 62],
+    [98, 64],
+  ]
+
+  areas = {
+    0: {
+      0: {
+        136: 'lon-lon',
+        255: 'lost-woods',
+      },
+      136: {
+        0: 'colossus',
+        136: 'market-area',
+        255: 'jabu',
+      },
+      255: {
+        0: 'zora-area',
+        136: 'fire-temple',
+        255: 'kokiri',
+      }
+    },
+    136: {
+      0: {
+        0: 'gerudo-valley',
+        136: 'hyrule-field',
+        255: 'ice-cavern',
+      },
+      136: {
+        0: 'gerudo-fortress',
+        255: 'water-temple',
+      },
+      255: {
+        0: 'dc',
+        136: 'deku',
+        255: 'spirit-temple',
+      }
+    },
+    255: {
+      0: {
+        0: 'kakariko',
+        136: 'shadow-temple',
+        255: 'lake-hylia',
+      },
+      136: {
+        0: 'botw',
+        136: 'forest-temple',
+      },
+      255: {
+        0: 'death-mountain',
+      },
+    },
+  };
+  function getIdAtColour(r, g, b) {
+    var x = areas[r];
+    if (!x) return '';
+    x = x[g];
+    if (!x) return '';
+    x = x[b];
+    if (!x) return '';
+    return x;
+  }
+  window.onload = function() {
+    c.width = map.offsetWidth;
+    c.height = map.offsetHeight;
+    cx.drawImage(selectionmap, 0, 0, map.offsetWidth, map.offsetHeight);
+    ox = map.offsetLeft;
+    oy = map.offsetTop;
+  }
+  var map = document.getElementById('map');
+  var selectionmap = document.getElementById('selection-map')
+  var c = document.createElement('canvas');
+  var cx = c.getContext('2d');
+
+  map.addEventListener('mousemove', hover, false);
+  map.addEventListener('mouseout', resetimg, false);
+
+  function resetimg(ev) {
+
+  }
+
+  function hover(ev) {
+    var x = ev.clientX - ox;
+    var y = ev.clientY - oy;
+    var pixelcolour = cx.getImageData(x, y, 1, 1).data;
+    elems = document.getElementsByClassName('highlight');
+    for (var i = 0; i < elems.length; i++) {
+      if (elems[i].id === getIdAtColour(pixelcolour[0],pixelcolour[1],pixelcolour[2])) {
+        elems[i].classList.add('hover');
+      } else {
+        elems[i].classList.remove('hover');
+      }
+    }
+  }
+
+})();
+  </script>
+</body>

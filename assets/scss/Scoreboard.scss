@@ -1,0 +1,27 @@
+.scoreboard {
+  .score-entry {
+    margin: 1vh 0;
+    align-items: center;
+    line-height: 2.5vh;
+
+    .colour {
+      border-radius: 50%;
+      border: 0.1vh black solid;
+      height: 2vh;
+      width: 2vh;
+
+      &.remaining {
+        background: grey;
+      }
+    }
+
+    .name {
+      font-size: 2.5vh;
+      margin: 0 1vh;
+    }
+
+    .score {
+      font-size: 2.5vh;
+    }
+  }
+}

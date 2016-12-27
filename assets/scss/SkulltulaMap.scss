@@ -1,0 +1,65 @@
+.map-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95%;
+  width: 95%;
+  position: relative;
+}
+
+.map-padding {
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  bottom: 2.5%;
+  right: 2.5%;
+}
+
+.scoreboard-container {
+  position: absolute;
+}
+
+.map-sizer {
+  background: black;
+  position: relative;
+
+
+  img {
+    position: absolute;;
+  }
+
+  .map {
+    width: 100%;
+  }
+
+  .highlight {
+    width: 100%;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  .selection-map {
+    display: none;
+  }
+
+  .skulltula {
+    pointer-events: none;
+    position: absolute;
+    width: 1.77%;
+    height: 1.77%;
+    background-image: url('/images/gold-skulltula.png');
+    background-size: cover;
+    border-radius: 50%;
+    opacity: 0.5;
+    border: 1px solid black;
+    transition: opacity 200ms ease-in-out;
+    &.active {
+      opacity: 1;
+    }
+  }
+
+}

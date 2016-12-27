@@ -1,0 +1,11 @@
+[ignore]
+.*/test/.*
+.*/gulp-sass-lint/.*
+
+[include]
+
+[libs]
+decls/
+
+[options]
+esproposal.class_instance_fields=enable

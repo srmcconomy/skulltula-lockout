@@ -18,7 +18,7 @@ class Scoreboard extends PureComponent {
     const { playerSkulls, players } = this.props;
     let playerScores = players.map(() => 0);
     playerSkulls.forEach(player => {
-      playerScores = playerScores.update(player, s => s + 1);
+      if (player) playerScores = playerScores.update(player, s => s + 1);
     });
     const total = playerScores.reduce((t, s) => t + s);
     const entries = playerScores.map((score, playerID) => (
@@ -27,8 +27,7 @@ class Scoreboard extends PureComponent {
         key={playerID}
       >
         <div
-          className="colour"
-          style={{ backgroundColor: players.get(playerID).colour }}
+          className={`colour ${players.get(playerID).colour}`}
         />
         <span className="name">
           {players.get(playerID).name}
@@ -39,7 +38,7 @@ class Scoreboard extends PureComponent {
       </div>
     ));
     return (
-      <div className="scoreboard">
+      <div className={`scoreboard${this.props.abs ? ' abs' : ''}`}>
         <div className="entries">
           {entries}
         </div>
@@ -59,7 +58,7 @@ class Scoreboard extends PureComponent {
 
 export default connect(
   state => ({
-    playerSkulls: state.playerSkulls,
-    players: state.players,
+    playerSkulls: state.matches.get(state.self.matchID).playerSkulls,
+    players: state.matches.get(state.self.matchID).players,
   }),
 )(Scoreboard);

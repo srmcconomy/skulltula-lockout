@@ -1,0 +1,146 @@
+.join-match-modal {
+  background: $grey3;
+  border-radius: .3vh;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, .3), 0 15px 12px rgba(0, 0, 0, .22);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 2vh 4vh 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2vh;
+
+  input {
+    float: right;
+    font-size: inherit;
+    margin-left: 2vh;
+    width: 30vh;
+  }
+
+  .colours {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    margin: 1vh;
+  }
+
+  .colours-container {
+    line-height: 7vh;
+    justify-content: space-between;
+  }
+
+  .entrants-container {
+    width: 30vh;
+  }
+
+  .entrant-colour {
+    border-radius: 50%;
+    height: 2vh;
+    width: 2vh;
+    margin: 1vh;
+
+    &.red {
+      background: $red;
+    }
+
+    &.orange {
+      background: $orange;
+    }
+
+    &.yellow {
+      background: $yellow;
+    }
+
+    &.green {
+      background: $green;
+    }
+
+    &.blue {
+      background: $blue;
+    }
+
+    &.purple {
+      background: $purple;
+    }
+
+    &.disabled {
+      background: grey;
+    }
+  }
+
+  .colour {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 5vh;
+    justify-content: center;
+    width: 5vh;
+
+    &:not(.disabled) {
+      cursor: pointer;
+    }
+
+    &.checked {
+      background: $grey1;
+    }
+
+    .inner {
+      border-radius: 50%;
+      height: 3vh;
+      width: 3vh;
+    }
+
+    &.red .inner {
+      background: $red;
+    }
+
+    &.orange .inner {
+      background: $orange;
+    }
+
+    &.yellow .inner {
+      background: $yellow;
+    }
+
+    &.green .inner {
+      background: $green;
+    }
+
+    &.blue .inner {
+      background: $blue;
+    }
+
+    &.purple .inner {
+      background: $purple;
+    }
+
+    &.disabled .inner {
+      background: grey;
+    }
+  }
+
+  button {
+    line-height: 4.5vh;
+    padding: 0 1vh;
+    text-align: left;
+    width: 23vh;
+    margin-top: 5vh;
+    font-size: 2.5vh;
+    text-align: center;
+  }
+
+  .entrants {
+    padding: 1vh 0;
+  }
+
+  .player-name {
+    line-height: 4vh;
+    color: $white;
+  }
+
+  .title {
+    color: $white;
+    font-size: 2.5vh;
+    padding-bottom: 3vh;
+    text-align: center;
+  }
+}

@@ -1,35 +1,43 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import type { List } from 'immutable';
 
 import Modal from './Modal';
-import closeArea from '../actions/closeArea';
+import closeArea from '../actions/client/closeArea';
 import AreaModalItem from './AreaModalItem';
 import areas from '../data/areas';
 import type Player from '../types/Player';
 
 type Props = {
+  playerID: string,
   openedArea: ?string,
   players: List<Player>,
   playerSkulls: List<number>,
   closeArea: typeof closeArea,
 };
 
-class AreaModal extends PureComponent {
+class AreaModal extends Component {
   props: Props;
+
+  shouldComponentUpdate(nextProps: Props) {
+    return (
+      nextProps.openedArea !== this.props.openedArea ||
+      nextProps.players !== this.props.players ||
+      nextProps.playerSkulls !== this.props.playerSkulls
+    );
+  }
 
   onCloseClick = () => {
     this.props.closeArea();
   }
 
   render() {
-    const { openedArea, players, playerSkulls } = this.props;
+    const { openedArea, players, playerSkulls, playerID } = this.props;
     if (!openedArea) {
       return null;
     }
-    const playerID = 0;
     const area = areas.get(openedArea);
     const items = area.skulltulas.map(skullID => {
       const claimingPlayerID = playerSkulls.get(skullID);
@@ -63,9 +71,10 @@ class AreaModal extends PureComponent {
 
 export default connect(
   state => ({
+    playerID: state.self.id,
     openedArea: state.openedArea,
-    players: state.players,
-    playerSkulls: state.playerSkulls,
+    players: state.matches.get(state.self.matchID).players,
+    playerSkulls: state.matches.get(state.self.matchID).playerSkulls,
   }),
-  { closeArea }
+  { closeArea },
 )(AreaModal);

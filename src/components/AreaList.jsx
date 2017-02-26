@@ -1,11 +1,11 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import areas from '../data/areas';
-import setHoveredArea from '../actions/setHoveredArea';
-import openArea from '../actions/openArea';
+import setHoveredArea from '../actions/client/setHoveredArea';
+import openArea from '../actions/client/openArea';
 
 type Props = {
   hoveredArea: string,
@@ -13,8 +13,12 @@ type Props = {
   openArea: typeof openArea,
 };
 
-class AreaList extends PureComponent {
+class AreaList extends Component {
   props: Props;
+
+  shouldComponentUpdate(nextProps: Props) {
+    return nextProps.hoveredArea !== this.props.hoveredArea;
+  }
 
   onMouseOver(area: string) {
     return () => {
@@ -60,5 +64,5 @@ export default connect(
   {
     setHoveredArea,
     openArea,
-  }
+  },
 )(AreaList);

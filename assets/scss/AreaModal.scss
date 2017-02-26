@@ -1,13 +1,13 @@
 .area-modal {
   background: #424242;
   border-radius: .3vh;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, .30), 0 15px 12px rgba(0, 0, 0, .22);
-  padding: 2vh 4vh 4vh 4vh;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, .3), 0 15px 12px rgba(0, 0, 0, .22);
+  padding: 2vh 4vh 4vh;
 
   .area-modal-item {
+    align-items: center;
     height: 9vh;
     margin: 1vh;
-    align-items: center;
 
     .flex-column {
       margin: 0 1vh;

@@ -1,19 +1,20 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import areas from '../data/areas';
-import claimSkull from '../actions/claimSkull';
-import moveSkullDownInQueue from '../actions/moveSkullDownInQueue';
-import moveSkullUpInQueue from '../actions/moveSkullUpInQueue';
-import removeSkullFromQueue from '../actions/removeSkullFromQueue';
+import claimSkull from '../actions/match/claimSkull';
+import moveSkullDownInQueue from '../actions/player/moveSkullDownInQueue';
+import moveSkullUpInQueue from '../actions/player/moveSkullUpInQueue';
+import removeSkullFromQueue from '../actions/player/removeSkullFromQueue';
 import skulltulas from '../data/skulltulas';
 
 type Props = {
   index: number,
   skullID: number,
-  playerID: number,
+  playerID: string,
+  matchID: string,
   removeSkullFromQueue: typeof removeSkullFromQueue,
   claimSkull: typeof claimSkull,
   moveSkullUpInQueue: typeof moveSkullUpInQueue,
@@ -22,23 +23,31 @@ type Props = {
 
 const QUEUE_ITEM_HEIGHT = 11.2;
 
-class QueueItem extends PureComponent {
+class QueueItem extends Component {
   props: Props;
 
+  shouldComponentUpdate(nextProps: Props) {
+    return (
+      nextProps.index !== this.props.index ||
+      nextProps.skullID !== this.props.skullID ||
+      nextProps.playerID !== this.props.playerID
+    );
+  }
+
   onRemoveClick = () => {
-    this.props.removeSkullFromQueue(this.props.index, this.props.playerID);
+    this.props.removeSkullFromQueue(this.props.index, this.props.playerID, this.props.matchID);
   }
 
   onClaimClick = () => {
-    this.props.claimSkull(this.props.skullID, this.props.playerID);
+    this.props.claimSkull(this.props.skullID, this.props.playerID, this.props.matchID);
   }
 
   onMoveUpClick = () => {
-    this.props.moveSkullUpInQueue(this.props.index, this.props.playerID);
+    this.props.moveSkullUpInQueue(this.props.index, this.props.playerID, this.props.matchID);
   }
 
   onMoveDownClick = () => {
-    this.props.moveSkullDownInQueue(this.props.index, this.props.playerID);
+    this.props.moveSkullDownInQueue(this.props.index, this.props.playerID, this.props.matchID);
   }
 
   render() {
@@ -84,11 +93,11 @@ class QueueItem extends PureComponent {
 }
 
 export default connect(
-  undefined,
+  state => ({ playerID: state.self.id, matchID: state.self.matchID }),
   {
     claimSkull,
     moveSkullDownInQueue,
     moveSkullUpInQueue,
-    removeSkullFromQueue
+    removeSkullFromQueue,
   },
 )(QueueItem);

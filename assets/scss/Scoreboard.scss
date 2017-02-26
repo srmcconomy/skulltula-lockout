@@ -1,27 +1,78 @@
 .scoreboard {
   .score-entry {
-    margin: 1vh 0;
     align-items: center;
     line-height: 2.5vh;
+    margin: 1.5vh 0;
 
     .colour {
+      border: .1vh black solid;
       border-radius: 50%;
-      border: 0.1vh black solid;
       height: 2vh;
       width: 2vh;
 
       &.remaining {
         background: grey;
       }
+
+      &.red {
+        background: $red;
+      }
+
+      &.orange {
+        background: $orange;
+      }
+
+      &.yellow {
+        background: $yellow;
+      }
+
+      &.green {
+        background: $green;
+      }
+
+      &.blue {
+        background: $blue;
+      }
+
+      &.purple {
+        background: $purple;
+      }
     }
 
     .name {
       font-size: 2.5vh;
       margin: 0 1vh;
+      flex: 1;
     }
 
     .score {
       font-size: 2.5vh;
+      margin-left: 2vh;
+    }
+  }
+}
+
+.abs.scoreboard {
+  width: 90%;
+  color: white;
+
+  .score-entry {
+    line-height: 20px;
+    margin: 10px 0;
+
+    .colour {
+      height: 20px;
+      width: 20px;
+    }
+
+    .name {
+      font-size: 20px;
+      margin: 0 10px;
+    }
+
+    .score {
+      font-size: 20px;
+      margin-left: 20px;
     }
   }
 }

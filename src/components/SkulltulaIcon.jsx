@@ -18,11 +18,10 @@ export default class SkulltulaIcon extends PureComponent {
     const { position, colour, active } = this.props;
     return (
       <div
-        className={`skulltula${active ? ' active' : ''}`}
+        className={`skulltula ${colour}${active ? ' active' : ''}`}
         style={{
           left: `${position.x}%`,
           top: `${position.y}%`,
-          backgroundColor: colour,
         }}
       />
     );

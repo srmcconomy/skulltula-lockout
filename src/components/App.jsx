@@ -1,33 +1,79 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
-import SkulltulaMap from './SkulltulaMap';
-import AreaList from './AreaList';
-import AreaModal from './AreaModal';
-import Scoreboard from './Scoreboard';
-import Queue from './Queue';
-import ScrollArea from './ScrollArea';
+import MatchList from './MatchList';
+import CreateMatch from './CreateMatch';
+import CreateMatchModal from './CreateMatchModal';
+import JoinMatchModal from './JoinMatchModal';
 
-export default class App extends PureComponent {
+import type Player from '../types/Player';
+
+type State = {
+  showMatchModal: boolean,
+  showJoinModal: boolean,
+  joinMatchID: ?string,
+};
+
+type Props = {
+  router: any,
+  self: Player,
+};
+
+class App extends Component {
+  state: State;
+  props: Props;
+
+  constructor() {
+    super();
+    this.state = { showMatchModal: false, showJoinModal: false, joinMatchID: null };
+  }
+
+  componentWillReceiveProps(props: Props) {
+    if (props.self && props.self.matchID) {
+      props.router.replace(`/match/${props.self.matchID}`);
+    }
+  }
+
+  onCreateClick = () => {
+    this.setState({ showMatchModal: true });
+  }
+
+  onJoinClick = matchID => {
+    this.setState({ showJoinModal: true, joinMatchID: matchID });
+  }
+
   render() {
     return (
       <div className="app">
-        <div className="left-bar">
-          <div className="fill">
-            <ScrollArea>
-              <Queue playerID={0} />
-            </ScrollArea>
+        <div className="main-title">
+          <div className="main">
+            Skulltula Lockout
+          </div>
+          <div className="sub">
+            OCS Playoffs 2
           </div>
         </div>
-        <div className="middle-bar fill">
-          <SkulltulaMap />
+        <CreateMatchModal
+          show={this.state.showMatchModal}
+          onCloseClick={() => this.setState({ showMatchModal: false })}
+        />
+        <JoinMatchModal
+          matchID={this.state.joinMatchID}
+          show={this.state.showJoinModal}
+          onCloseClick={() => this.setState({ showJoinModal: false })}
+        />
+        <div className="container">
+          <CreateMatch onClick={this.onCreateClick} />
+          <MatchList onJoinClick={this.onJoinClick} />
         </div>
-        <div className="right-bar">
-          <AreaList />
-        </div>
-        <AreaModal />
       </div>
     );
   }
 }
+
+export default connect(
+  state => ({ self: state.self }),
+)(withRouter(App));

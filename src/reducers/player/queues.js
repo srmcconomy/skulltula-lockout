@@ -1,12 +1,12 @@
 // @flow
 
-import { List } from 'immutable';
+import { Map, List } from 'immutable';
 
 import type { Action } from '../../actions';
 
 export default function (
-  state: List<List<number>> = new List(),
-  action: Action
+  state: Map<string, List<number>> = new Map(),
+  action: Action,
 ) {
   switch (action.type) {
     case 'add-to-bottom-of-queue': {
@@ -68,13 +68,19 @@ export default function (
             return l.delete(i);
           }
           return l;
-        }
+        },
       );
     }
-    case 'add-player': {
-      return state.push(new List());
+    case 'add-player': case 'add-player-and-join': {
+      return state.set(action.playerID, new List());
     }
     default:
       return state;
   }
+}
+
+export type QueuesStateJSON = { [key: string]: Array<number> };
+
+export function queuesStateFromJSON(obj: QueuesStateJSON) {
+  return new Map(Object.keys(obj).map(key => [key, new List(obj[key])]));
 }

@@ -6,8 +6,8 @@ import type { List } from 'immutable';
 
 import areas from '../data/areas';
 import getAreaFromColour from '../util/getAreaFromColour';
-import openArea from '../actions/openArea';
-import setHoveredArea from '../actions/setHoveredArea';
+import openArea from '../actions/client/openArea';
+import setHoveredArea from '../actions/client/setHoveredArea';
 import SkulltulaIcon from './SkulltulaIcon';
 import skulltulas from '../data/skulltulas';
 import type Player from '../types/Player';
@@ -164,9 +164,11 @@ class SkulltulaMap extends PureComponent {
           style={{ height: this.state.size, width: this.state.size }}
         >
           <div className="map-padding">
-            <div className="scoreboard-container">
-              <Scoreboard />
-            </div>
+            {this.props.noscoreboard ? null :
+              <div className="scoreboard-container">
+                <Scoreboard />
+              </div>
+            }
             {highlights}
             <img
               role="presentation"
@@ -204,11 +206,11 @@ class SkulltulaMap extends PureComponent {
 export default connect(
   state => ({
     hoveredArea: state.hoveredArea,
-    playerSkulls: state.playerSkulls,
-    players: state.players,
+    playerSkulls: state.matches.get(state.self.matchID).playerSkulls,
+    players: state.matches.get(state.self.matchID).players,
   }),
   {
     setHoveredArea,
     openArea,
-  }
+  },
 )(SkulltulaMap);

@@ -170,11 +170,12 @@ gulp.task('clean', callback => {
 /**
  * Task to compile our files for production.
  */
-gulp.task('compile', callback => {
+gulp.task('build:prod', callback => {
   runSequence('clean', [
     'build:lint:js:prod',
     'build:lint:css:prod',
   ], [
+    'build:css',
     'build:client:prod',
     'build:server:prod',
   ], callback);
@@ -182,11 +183,12 @@ gulp.task('compile', callback => {
 
 gulp.task('watch', ['clean'], callback => {
   runSequence(
+    // [
+    //   'build:lint:js',
+    //   'build:flow',
+    //   'build:lint:css',
+    // ], [
     [
-      'build:lint:js',
-      'build:flow',
-      'build:lint:css',
-    ], [
       'build:css',
       'build:client',
       'build:server',
@@ -194,9 +196,9 @@ gulp.task('watch', ['clean'], callback => {
       // Watch files
       gulp.watch(config.files.client.src, ['build:client']);
       gulp.watch(config.files.server.src, ['build:server']);
-      gulp.watch(config.files.client.src, ['build:lint:js']);
-      gulp.watch(config.files.css.src, ['build:lint:css']);
-      gulp.watch(config.files.client.src, ['build:flow']);
+      // gulp.watch(config.files.client.src, ['build:lint:js']);
+      // gulp.watch(config.files.css.src, ['build:lint:css']);
+      // gulp.watch(config.files.client.src, ['build:flow']);
       gulp.watch(config.files.css.src, ['build:css']);
 
       // Launch Nodemon

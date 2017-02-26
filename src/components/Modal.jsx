@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   show: boolean,
   onCloseClick: () => void,
 };
 
-export default class Modal extends PureComponent {
+export default class Modal extends Component {
   props: Props;
 
   render() {

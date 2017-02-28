@@ -12,6 +12,7 @@ import socketio from 'socket.io';
 import type EventEmitter from 'events';
 import cookieParser from 'cookie-parser';
 import { match } from 'react-router';
+import serialize from 'serialize-javascript';
 
 import routes from './util/routes';
 import { serverReducers } from './reducers';
@@ -80,7 +81,7 @@ app.use((req, res) => {
           <body>
             <div id="root"></div>
             <script async defer src="${jsFile}"></script>
-            <script>document.INITIAL_STATE = ${JSON.stringify(state)}</script>
+            <script>document.INITIAL_STATE = ${serialize(state)}</script>
           </body>
         </html>`;
         res.send(html);

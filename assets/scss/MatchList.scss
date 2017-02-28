@@ -15,6 +15,7 @@
     .name {
       font-size: 3vh;
       overflow: hidden;
+      white-space: nowrap;
       width: 20vh;
     }
 
@@ -39,8 +40,13 @@
       width: 50%;
     }
 
+    .player-name {
+      white-space: nowrap;
+    }
+
     .colour {
       border-radius: 50%;
+      flex: none;
       height: 2vh;
       margin: 1vh;
       width: 2vh;

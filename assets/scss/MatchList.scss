@@ -14,6 +14,7 @@
 
     .name {
       font-size: 3vh;
+      overflow: hidden;
       width: 20vh;
     }
 
@@ -27,12 +28,15 @@
       flex-direction: column;
       flex-wrap: wrap;
       font-size: 2vh;
+      height: 100%;
     }
 
     .entrant {
       align-items: center;
       display: flex;
       flex-direction: row;
+      overflow: hidden;
+      width: 50%;
     }
 
     .colour {

@@ -1,13 +1,13 @@
 .join-match-modal {
+  align-items: center;
   background: $grey3;
   border-radius: .3vh;
   box-shadow: 0 19px 38px rgba(0, 0, 0, .3), 0 15px 12px rgba(0, 0, 0, .22);
   color: rgba(255, 255, 255, 0.8);
-  padding: 2vh 4vh 4vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 2vh;
+  padding: 2vh 4vh 4vh;
 
   input {
     float: right;
@@ -17,26 +17,27 @@
   }
 
   .colours {
+    align-self: flex-end;
     display: flex;
     flex-direction: row;
-    align-self: flex-end;
     margin: 1vh;
   }
 
   .colours-container {
-    line-height: 7vh;
     justify-content: space-between;
+    line-height: 7vh;
   }
 
   .entrants-container {
     width: 30vh;
+    margin-right: 5vh;
   }
 
   .entrant-colour {
     border-radius: 50%;
     height: 2vh;
-    width: 2vh;
     margin: 1vh;
+    width: 2vh;
 
     &.red {
       background: $red;
@@ -119,13 +120,12 @@
   }
 
   button {
-    line-height: 4.5vh;
-    padding: 0 1vh;
-    text-align: left;
-    width: 23vh;
-    margin-top: 5vh;
     font-size: 2.5vh;
+    line-height: 4.5vh;
+    margin-top: 5vh;
+    padding: 0 1vh;
     text-align: center;
+    width: 23vh;
   }
 
   .entrants {
@@ -133,14 +133,22 @@
   }
 
   .player-name {
-    line-height: 4vh;
+    width: 26vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: $white;
+    line-height: 4vh;
+    white-space: nowrap;
   }
 
   .title {
     color: $white;
     font-size: 2.5vh;
+    max-width: 73vh;
+    overflow: hidden;
     padding-bottom: 3vh;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

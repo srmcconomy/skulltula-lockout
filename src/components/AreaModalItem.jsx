@@ -8,6 +8,7 @@ import addToTopOfQueue from '../actions/player/addToTopOfQueue';
 import claimSkull from '../actions/match/claimSkull';
 import unclaimSkull from '../actions/match/unclaimSkull';
 import type { Colour } from '../types/Colour';
+import skulltulas from '../data/skulltulas';
 
 type Props = {
   playerID: string,
@@ -53,11 +54,18 @@ class AreaModalItem extends Component {
     const { skullID, colour, unclaimButton } = this.props;
     return (
       <div className="area-modal-item flex-row">
-        <img
-          className={`skull-image${colour ? ` ${colour}` : ''}`}
-          role="presentation"
-          src={`/images/skull${skullID}.png`}
-        />
+        <div className="skull-image-container">
+          <div
+            className={`skull-image${colour ? ` ${colour}` : ''}`}
+            style={{ backgroundImage: `url(/images/skull${skullID}.png)` }}
+          >
+            {
+              skulltulas[skullID].type ?
+                <div className="skull-type">{skulltulas[skullID].type}</div> :
+                null
+            }
+          </div>
+        </div>
         <div className="flex-column flex-spaced">
           <button
             disabled={unclaimButton}

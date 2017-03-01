@@ -61,11 +61,13 @@ class QueueItem extends Component {
       >
         <button className="remove-button" onClick={this.onRemoveClick}>✕</button>
         <div className="flex-row">
-          <img
-            role="presentation"
-            className="skull-image"
-            src={`/images/skull${skullID}.png`}
-          />
+          <div className="skull-image-container">
+            <img
+              role="presentation"
+              className="skull-image"
+              src={`/images/skull${skullID}.png`}
+            />
+          </div>
           <div className="flex-column flex-spaced button-area">
             <span className="area">{area.name}</span>
             <div className="flex-row">

@@ -29,8 +29,19 @@
 
 .fill {
   flex: 1;
+  position: relative;
 }
 
 .scroll {
   overflow: scroll;
+}
+
+.protip {
+  bottom: 1vh;
+  color: rgba($white, .8);
+  font-size: 1.5vh;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
 }

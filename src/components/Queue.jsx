@@ -5,14 +5,34 @@ import { connect } from 'react-redux';
 import type { List } from 'immutable';
 
 import QueueItem from './QueueItem';
+import claimSkull from '../actions/match/claimSkull';
+
+import type Player from '../types/Player';
 
 
 type Props = {
   queue: List<number>,
-}
+  self: Player,
+  claimSkull: typeof claimSkull,
+};
 
 class Queue extends Component {
   props: Props;
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress = (e: KeyboardEvent) => {
+    const { queue, self } = this.props;
+    if (e.keyCode === 32 && queue.size > 0 && self.matchID) {
+      this.props.claimSkull(queue.get(0), self.id, self.matchID);
+    }
+  }
 
   render() {
     const { queue } = this.props;
@@ -36,5 +56,9 @@ class Queue extends Component {
 }
 
 export default connect(
-  state => ({ queue: state.matches.get(state.self.matchID).queues.get(state.self.id) }),
+  state => ({
+    self: state.self,
+    queue: state.matches.get(state.self.matchID).queues.get(state.self.id),
+  }),
+  { claimSkull },
 )(Queue);

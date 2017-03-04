@@ -22,7 +22,7 @@ class MatchList extends Component {
 
   render() {
     const { self, matches } = this.props;
-    const matchesElems = matches.keySeq().map(key => {
+    const matchesElems = matches.keySeq().reverse().map(key => {
       let joinButton;
       if (self && self.matchID && self.matchID === key && self.id) {
         joinButton = <Link className="primary" to={`/match/${self.matchID}`}>Rejoin Match</Link>;

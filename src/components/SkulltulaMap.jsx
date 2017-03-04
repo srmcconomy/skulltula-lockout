@@ -40,6 +40,7 @@ class SkulltulaMap extends PureComponent {
   top: number;
   naturalWidth: number;
   naturalHeight: number;
+  images: Array<Image>;
 
   constructor(props: Props) {
     super(props);

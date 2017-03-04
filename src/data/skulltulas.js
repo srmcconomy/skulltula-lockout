@@ -224,6 +224,7 @@ export default [
   },
   {
     area: 'fire-temple',
+    type: 'SoT block',
     position: new Vector2(69, 3),
   },
   {
@@ -240,6 +241,7 @@ export default [
   },
   {
     area: 'fire-temple',
+    type: 'behind statue',
     position: new Vector2(77, 3),
   },
   {
@@ -385,12 +387,12 @@ export default [
   {
     area: 'kokiri',
     type: 'C',
-    position: new Vector2(68, 55),
+    position: new Vector2(70, 59),
   },
   {
     area: 'kokiri',
     type: 'C',
-    position: new Vector2(70, 59),
+    position: new Vector2(68, 55),
   },
   {
     area: 'kokiri',

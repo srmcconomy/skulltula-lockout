@@ -8,7 +8,19 @@ import AreaModal from './AreaModal';
 import Queue from './Queue';
 import ScrollArea from './ScrollArea';
 
+const images = [];
+
 export default class Match extends Component {
+
+  componentDidMount() {
+    if (images.length < 100) {
+      for (let i = 0; i < 100; i++) {
+        images[i] = new Image();
+        images[i].src = `/images/skull${i}.png`;
+      }
+    }
+  }
+
   render() {
     return (
       <div className="match">
@@ -17,6 +29,9 @@ export default class Match extends Component {
             <ScrollArea>
               <Queue />
             </ScrollArea>
+            <div className="protip">
+              Press <i>space</i> to claim the top Skulltula in your queue!
+            </div>
           </div>
         </div>
         <div className="middle-bar fill">

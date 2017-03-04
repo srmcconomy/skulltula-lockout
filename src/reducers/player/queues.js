@@ -59,17 +59,16 @@ export default function (
       );
     }
     case 'claim-skull': {
-      const { playerID, skullID } = action;
-      return state.update(
-        playerID,
-        l => {
-          const i = l.indexOf(skullID);
+      if (action.origin === 'server' || state.get(action.skullID) === null) {
+        return state.map(l => {
+          const i = l.indexOf(action.skullID);
           if (i >= 0) {
             return l.delete(i);
           }
           return l;
-        },
-      );
+        });
+      }
+      return state;
     }
     case 'add-player': case 'add-player-and-join': {
       return state.set(action.playerID, new List());
